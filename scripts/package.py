@@ -32,7 +32,16 @@ def place(r):
 
 
 from collections import Counter
-ok_rows = [r for r in results if r["status"] == "ok"]
+ok_rows, by_hash = [], {}
+for r in results:
+    if r["status"] != "ok":
+        continue
+    if r["sha256"] in by_hash:  # same file matched to two catalog entries: keep it once
+        print(f"skip duplicate file for {r['subject_ar']} S{r['semester']} {r['type']} (same as #{by_hash[r['sha256']]})")
+        r["status"] = "duplicate"
+        continue
+    by_hash[r["sha256"]] = r["n"]
+    ok_rows.append(r)
 clash = Counter(place(r) for r in ok_rows)
 index, used = [], set()
 for r in ok_rows:
@@ -51,10 +60,11 @@ for r in ok_rows:
     shutil.move(str(dl / "files" / r["file"]), dest)
     index.append({**{k2: r[k2] for k2 in ("grade_key", "grade_en", "grade_ar", "subject_en", "subject_ar",
                                            "semester", "type", "nccd_label", "pages", "size", "sha256", "source",
-                                           "source_url", "official_url", "type_note")},
+                                           "source_url", "official_url", "official_match", "type_note")},
                   "file": str(pathlib.Path(ROOT_NAME) / rel)})
 
 json.dump(index, open(out / "index.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(results, open(dl / "results.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)  # records duplicates
 
 # Zip per grade (stored: PDFs are already compressed). Split by subject if too big.
 zdir = out / "zips"

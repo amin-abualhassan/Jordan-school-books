@@ -26,6 +26,7 @@ grade_arg, OUT = sys.argv[1], pathlib.Path(sys.argv[2])
 
 S = requests.Session()
 S.headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) jordan-school-books/1.0 (personal archive)"
+S.headers["Referer"] = "https://www.minhaji.net/"
 WAYBACK_GAP = 4.0  # seconds between Internet Archive requests
 _last = [0.0]
 
@@ -113,6 +114,23 @@ def capture_list(official_url):
     return []
 
 
+def prefix_matches(url, prefix):
+    """Stream only as many bytes as the partial official copy has, and compare."""
+    ref = prefix.read_bytes()
+    try:
+        with S.get(url, stream=True, timeout=(30, 120)) as r:
+            if r.status_code != 200:
+                return False
+            got = bytearray()
+            for chunk in r.iter_content(1 << 20):
+                got += chunk
+                if len(got) >= len(ref) or got[:len(got)] != ref[:len(got)]:
+                    break
+            return bytes(got[:len(ref)]) == ref
+    except Exception:
+        return False
+
+
 def official_reachable():
     try:
         S.get("https://www.nccd.gov.jo/", timeout=20)
@@ -122,7 +140,7 @@ def official_reachable():
 
 
 # ---- load inputs
-rows = list(csv.DictReader(open(CAT / "manifest.csv", encoding="utf-8")))
+rows = list(csv.DictReader(open(os.environ.get("MANIFEST", CAT / "manifest.csv"), encoding="utf-8")))
 if grade_arg != "all":
     rows = [r for r in rows if r["grade_key"] == grade_arg]
 
@@ -130,7 +148,8 @@ fallbacks = defaultdict(list)  # manifest card key -> [url]
 fb = CAT / "fallbacks.csv"
 if fb.exists():
     for r in csv.DictReader(open(fb, encoding="utf-8")):
-        fallbacks[(r["grade_key"], r["path"] or r["key"])].append(r["url"])
+        fallbacks[(r["grade_key"], r["path"] or r["key"])].append(
+            (r["url"], r.get("mirror", "mirror"), r.get("match", "strict")))
 
 OFFICIAL = official_reachable()
 print(f"official site reachable: {OFFICIAL}; {len(rows)} books", flush=True)
@@ -144,14 +163,20 @@ for n, r in enumerate(rows):
     if r["path"]:
         if OFFICIAL:
             cands.append(("official", r["official_url"], False))
-        cands.append(("wayback:latest", f"https://web.archive.org/web/99991231235959id_/{r['official_url']}", True))
-        cands.append(("wayback:others", r["official_url"], True))  # expanded lazily below
-        for alt in filter(None, (r.get("alt_urls") or "").split(" | ")):
+        if os.environ.get("NO_WAYBACK"):
+            pass
+        else:
+            cands.append(("wayback:latest", f"https://web.archive.org/web/99991231235959id_/{r['official_url']}", True))
+            cands.append(("wayback:others", r["official_url"], True))  # expanded lazily below
+        for alt in filter(None, (r.get("alt_urls") or "").split(" | ")) if not os.environ.get("NO_WAYBACK") else []:
             cands.append(("older-edition:latest", f"https://web.archive.org/web/99991231235959id_/{alt}", True))
-    for u in fallbacks.get((r["grade_key"], key), []):
-        cands.append(("mirror", u, False))
+    fb = fallbacks.get((r["grade_key"], key), [])
+    # strict matches first; loose ones (other semester/type label) only count if byte-identical to official
+    for u, mname, kind in sorted(fb, key=lambda x: x[2] != "strict"):
+        cands.append((f"mirror:{mname}" + (":loose" if kind == "loose" else ""), u, False))
 
-    rec = dict(r, n=n, status="missing", source="", source_url="", attempts=[])
+    rec = dict(r, n=n, status="missing", source="", source_url="", attempts=[], official_match="")
+    prefix = OUT / "files" / f"{n:04d}.prefix"
     tried_ts = set()
     queue = list(cands)
     while queue:
@@ -166,6 +191,12 @@ for n, r in enumerate(rows):
             if not more:
                 rec["attempts"].append("wayback: no other captures")
             continue
+        if label.endswith(":loose"):
+            if not prefix.exists():
+                continue  # cannot prove identity without a partial official copy
+            if not prefix_matches(url, prefix):
+                rec["attempts"].append(f"{label}: not the same file as the official one")
+                continue
         ok, info = fetch(url, tmp, wayback=wb)
         m = re.search(r"/web/(\d{14})", info.get("final_url", "") or "")
         if wb and m:
@@ -177,18 +208,34 @@ for n, r in enumerate(rows):
         good, why, meta = verify(tmp, info.get("expected_size"))
         if not good:
             rec["attempts"].append(f"{label}: {why}")
+            if wb and why.startswith("truncated") and tmp.stat().st_size > (prefix.stat().st_size if prefix.exists() else 0):
+                tmp.replace(prefix)  # partial official file: used below to check mirror copies
             continue
+        if label.startswith("mirror"):
+            if prefix.exists():
+                ref = prefix.read_bytes()
+                with open(tmp, "rb") as fh:
+                    same = fh.read(len(ref)) == ref
+                rec["official_match"] = (f"identical to the official file (first {len(ref) // 1048576} MB compared)"
+                                         if same else "differs from the official file (likely another print/edition)")
+            else:
+                rec["official_match"] = "no official copy available to compare"
+            if label.endswith(":loose") and not rec["official_match"].startswith("identical"):
+                rec["attempts"].append(f"{label}: label differs and not proven identical, skipped")
+                rec["official_match"] = ""
+                continue
         tmp.rename(dest)
         h = hashlib.sha256(dest.read_bytes()).hexdigest()
         rec.update(status="ok", source=label, source_url=info.get("final_url", url), file=dest.name, sha256=h, **meta)
         break
-    if tmp.exists():
-        tmp.unlink()
+    for f in (tmp, prefix):
+        if f.exists():
+            f.unlink()
     if not cands:
         rec["attempts"].append("no link on NCCD and no fallback source")
     results.append(rec)
     print(f"[{n+1}/{len(rows)}] {rec['status']:7} G{r['grade_key']} {r['subject_en'] or r['subject_ar']} S{r['semester']} {r['type']}"
-          f" <- {rec['source'] or '; '.join(rec['attempts'])[:200]}", flush=True)
+          f" <- {rec['source'] or '; '.join(rec['attempts'])[:200]} {rec['official_match']}", flush=True)
 
 json.dump(results, open(OUT / "results.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 ok = sum(1 for x in results if x["status"] == "ok")
