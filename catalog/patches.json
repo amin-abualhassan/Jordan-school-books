@@ -1,0 +1,123 @@
+{
+ "Grade-04.zip": {
+  "add": [
+   {
+    "url": "https://www.minhaji.net/download/31121",
+    "path": "Grade 04 - الصف الرابع/Digital Skills - المهارات الرقمية/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين.pdf",
+    "grade_key": "4",
+    "subject_ar": "المهارات الرقمية",
+    "subject_en": "Digital Skills",
+    "semester": "1",
+    "type": "activity",
+    "note": "Only Grade 4 Digital Skills book for semester 1; cover checked (المهارات الرقمية - الصف الرابع - كتاب الأنشطة, 2025 edition)",
+    "official_path": "/EBV4.0/Root_Storage/AR/المهارات الرقمية/G4/1/G4 Digital Skills S1 SB .pdf"
+   }
+  ]
+ },
+ "Grade-08.zip": {
+  "rename": [
+   [
+    "Grade 08 - الصف الثامن/Science - العلوم/Semester 2 - الفصل الثاني/Student Book - كتاب الطالب (الدراسات الاجتماعية-الثامن ف2 (1)).pdf",
+    "Grade 08 - الصف الثامن/Social Studies - الدراسات الإجتماعية/Semester 2 - الفصل الثاني/Student Book - كتاب الطالب.pdf",
+    {
+     "subject_en": "Social Studies",
+     "subject_ar": "الدراسات الإجتماعية",
+     "note": "NCCD's page lists this Social Studies book under Science; moved (cover checked)"
+    }
+   ],
+   [
+    "Grade 08 - الصف الثامن/Science - العلوم/Semester 2 - الفصل الثاني/Student Book - كتاب الطالب (علوم ثامن الجزء الثاني).pdf",
+    "Grade 08 - الصف الثامن/Science - العلوم/Semester 2 - الفصل الثاني/Student Book - كتاب الطالب.pdf",
+    {}
+   ]
+  ]
+ },
+ "Grade-11-Academic.zip": {
+  "delete": [
+   "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (MT11_WB1_2026).pdf"
+  ],
+  "rename": [
+   [
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (NEW_MT11_WB1_20_5_2025).pdf",
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين.pdf",
+    {
+     "note": "The 2026 slot on NCCD's page resolved to this same 2025 edition; kept once"
+    }
+   ],
+   [
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (MT11_SE1_2026).pdf",
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (2026 edition - طبعة 2026).pdf",
+    {}
+   ],
+   [
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (NEW_MT11_SE1_WEB).pdf",
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (2025 edition - طبعة 2025).pdf",
+    {}
+   ],
+   [
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/History - تاريخ/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (تاريخ الاردن الاكاديمي-ف1).pdf",
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/History of Jordan - تاريخ الأردن/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (Academic track - المسار الأكاديمي).pdf",
+    {}
+   ],
+   [
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/History - تاريخ/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (تاريخ الأردن-الحادي عشر المهني- الفصل الأول للطباعة).pdf",
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/History of Jordan - تاريخ الأردن/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (Vocational track - المسار المهني).pdf",
+    {}
+   ],
+   [
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/History - تاريخ/Semester 2 - الفصل الثاني/Student Book - كتاب الطالب (تاريخ الأردن-الحادي عشر المهني- الفصل الثاني).pdf",
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/History of Jordan - تاريخ الأردن/Semester 2 - الفصل الثاني/Student Book - كتاب الطالب (Vocational track - المسار المهني).pdf",
+    {}
+   ],
+   [
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/History - تاريخ/Semester 2 - الفصل الثاني/Student Book - كتاب الطالب (تاريخ الأردن-الحادي عشر أكاديمي- الفصل الثاني-للموقع-2025).pdf",
+    "Grade 11 Academic - الصف الحادي عشر - المسار الأكاديمي/History of Jordan - تاريخ الأردن/Semester 2 - الفصل الثاني/Student Book - كتاب الطالب (Academic track - المسار الأكاديمي).pdf",
+    {
+     "note": "mirror copy had the back page first; moved it to the end",
+     "first_page_to_end": true
+    }
+   ]
+  ]
+ },
+ "Grade-12-Academic.zip": {
+  "rename": [
+   [
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Business Mathematics - الرياضيات-الأعمال/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (A3mal_WB12_WB1_Proof8).pdf",
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Business Mathematics - الرياضيات-الأعمال/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (2025 edition - طبعة 2025).pdf",
+    {}
+   ],
+   [
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Business Mathematics - الرياضيات-الأعمال/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (A3mal_WB1_2026).pdf",
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Business Mathematics - الرياضيات-الأعمال/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (2026 edition - طبعة 2026).pdf",
+    {}
+   ],
+   [
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Business Mathematics - الرياضيات-الأعمال/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (A3mal_ST1_2026).pdf",
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Business Mathematics - الرياضيات-الأعمال/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (2026 edition - طبعة 2026).pdf",
+    {}
+   ],
+   [
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Business Mathematics - الرياضيات-الأعمال/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (A3mal_ST1_Proof9).pdf",
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Business Mathematics - الرياضيات-الأعمال/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (2025 edition - طبعة 2025).pdf",
+    {}
+   ],
+   [
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (2026_MT12_WB1).pdf",
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (2026 edition - طبعة 2026).pdf",
+    {}
+   ],
+   [
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (NEW_MT12_WB1_WEB).pdf",
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Activity Book - كتاب الأنشطة والتمارين (2025 edition - طبعة 2025).pdf",
+    {}
+   ],
+   [
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Student Book - كتاب الطالب.pdf",
+    "Grade 12 Academic - الصف الثاني عشر - المسار الأكاديمي/Mathematics - الرياضيات/Semester 1 - الفصل الأول/Student Book - كتاب الطالب (2026 edition - طبعة 2026).pdf",
+    {
+     "note": "2026 edition (the 2025 slot resolved to the same file)"
+    }
+   ]
+  ]
+ }
+}

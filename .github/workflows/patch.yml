@@ -1,0 +1,47 @@
+name: Patch textbook release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag"
+        default: "textbooks-2025-2026"
+
+permissions:
+  contents: write
+
+env:
+  TAG: ${{ inputs.tag }}
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install tools
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q poppler-utils qpdf
+          pip install requests
+      - name: Apply corrections from catalog/patches.json
+        run: python scripts/patch_release.py
+      - name: Upload patched zips, index and notes
+        run: |
+          gh release upload "$TAG" patched/*.zip final/INDEX.csv --clobber
+          if [ -f scripts/release_notes.md ]; then
+            { cat scripts/release_notes.md; echo; sed -n '3,9p' final/REPORT.md; } > notes.md
+            gh release edit "$TAG" --notes-file notes.md
+          fi
+      - name: Commit report
+        run: |
+          cp final/REPORT.md REPORT.md
+          cp final/INDEX.csv reports/INDEX.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add REPORT.md reports
+          git commit -m "Apply review corrections to release [skip ci]" || echo "nothing to commit"
+          git pull --rebase -q && git push
