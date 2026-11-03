@@ -26,10 +26,12 @@ Source
 ------
 All books are © NCCD and are published free of charge on the official site:
   https://www.nccd.gov.jo
-The official site always has the latest editions. These copies were taken from
-the official files (via the Internet Archive where the site could not be
-reached directly); any book that came from a different source is marked in
-INDEX.csv.
+The official site always has the latest editions. This collection follows the
+book list NCCD published on its site as of May 2026 (2025/2026 school year,
+including the new 2026 Grade 11/12 mathematics editions). The files are the
+official NCCD PDFs, retrieved through the Internet Archive because nccd.gov.jo
+only answers inside Jordan. Any book that came from a different source is
+marked in INDEX.csv (column "source").
 
 -----------------------------------------------------------------
 الكتب المدرسية الرسمية للمنهاج الأردني للصفوف 1-12 (كتاب الطالب وكتاب الأنشطة
