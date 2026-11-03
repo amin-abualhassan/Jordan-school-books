@@ -1167,7 +1167,7 @@
   "recovered": "",
   "card": "57",
   "n": 39,
-  "status": "ok",
+  "status": "duplicate",
   "source": "mirror:minhaji.net",
   "source_url": "https://www.minhaji.net/download/6262",
   "attempts": [

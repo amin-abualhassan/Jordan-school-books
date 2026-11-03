@@ -712,24 +712,27 @@
   "subject_ar": "المهارات الرقمية",
   "subject_en": "Digital Skills",
   "semester": "1",
-  "type": "student",
+  "type": "activity",
   "nccd_label": "كتاب التمارين",
   "display_name": "Student Book - كتاب التمارين",
-  "type_note": "label says activity, file name says student",
+  "type_note": "Only Grade 4 Digital Skills book for semester 1; cover checked (المهارات الرقمية - الصف الرابع - كتاب الأنشطة, 2025 edition)",
   "path": "/EBV4.0/Root_Storage/AR/المهارات الرقمية/G4/1/G4 Digital Skills S1 SB .pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/%D8%A7%D9%84%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9/G4/1/G4%20Digital%20Skills%20S1%20SB%20.pdf",
   "alt_urls": "",
   "recovered": "",
   "card": "29",
   "n": 23,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/31121",
   "attempts": [
    "wayback:99991231235959: HTTP 404",
    "wayback: no other captures"
   ],
-  "official_match": ""
+  "official_match": "no official copy available to compare",
+  "sha256": "3264c49219facb69273376a444bce5c7ef167c6340d9b1f562d076bd9e8be053",
+  "pages": 149,
+  "size": 13084714
  },
  {
   "grade_key": "4",
