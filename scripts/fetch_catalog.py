@@ -50,6 +50,31 @@ r = get("https://web.archive.org/cdx/search/cdx?url=nccd.gov.jo/ar/pages/TextBoo
 if r is not None:
     (OUT / "cdx_grade_pages.txt").write_text(r.text, encoding="utf-8")
 
+# Earlier captures from the same school year (Aug 2025 onward): used to recover
+# books whose link is broken on the newest page, and alternative file paths.
+OLD = SNAP / "older"
+OLD.mkdir(exist_ok=True)
+cdx_lines = (OUT / "cdx_grade_pages.txt").read_text(encoding="utf-8").splitlines() \
+    if (OUT / "cdx_grade_pages.txt").exists() else []
+for line in cdx_lines:
+    p = line.split(" ")
+    if len(p) < 3 or p[2] != "200" or p[0] < "20250801":
+        continue
+    m = re.search(r"TextBooksGrade/(\d+)$", p[1])
+    if not m or int(m.group(1)) not in GRADES:
+        continue
+    g = int(m.group(1))
+    if stamps.get(g, {}).get("capture") == p[0]:
+        continue
+    dest = OLD / f"grade_{g}_{p[0]}.html"
+    if dest.exists():
+        continue
+    time.sleep(6)
+    r = get(f"https://web.archive.org/web/{p[0]}id_/{p[1]}", ok=lambda r: r.status_code == 200 and "lvComponent14Book" in r.text, tries=3)
+    if r is not None:
+        dest.write_text(r.text, encoding="utf-8")
+        print(f"older grade {g} @ {p[0]}", flush=True)
+
 # CDX index of all archived files under Root_Storage (paged)
 rows, page = [], 0
 base = ("https://web.archive.org/cdx/search/cdx?url=nccd.gov.jo/EBV4.0/Root_Storage/"

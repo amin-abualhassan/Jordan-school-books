@@ -108,19 +108,39 @@ def field(card, key):
     return html.unescape(m.group(1)).strip() if m else ""
 
 
+def cards(page):
+    for i, card in enumerate(page.split('class="col-md-4 bookposition"')[1:]):
+        m = re.search(r'<a href="([^"]+)" target="_blank">', card)
+        href = html.unescape(m.group(1)).strip() if m else ""
+        yield i, field(card, "Title"), field(card, "Type"), semester(field(card, "Semester")), \
+            (href if href.lower().endswith(".pdf") else "")
+
+
+def official(href):
+    return "https://www.nccd.gov.jo" + quote(href, safe="/()&,'+")
+
+
 rows = []
 for gid, (gkey, gen, gar) in GRADES.items():
     f = CAT / "snapshots" / f"grade_{gid}.html"
     if not f.exists():
         print(f"!! missing snapshot for grade page {gid} ({gen})")
         continue
+    # Links for the same (subject, semester, label) on earlier captures of this page, newest first
+    older = {}
+    for of in sorted((CAT / "snapshots" / "older").glob(f"grade_{gid}_*.html"), reverse=True):
+        for _, s_ar, lb, sem, h in cards(of.read_text(encoding="utf-8")):
+            if h:
+                older.setdefault((norm(s_ar), sem, norm(lb)), [])
+                if h not in older[(norm(s_ar), sem, norm(lb))]:
+                    older[(norm(s_ar), sem, norm(lb))].append(h)
     page = f.read_text(encoding="utf-8")
-    for i, card in enumerate(page.split('class="col-md-4 bookposition"')[1:]):
-        subj_ar = field(card, "Title")
-        lbl = field(card, "Type")
-        m = re.search(r'<a href="([^"]+)" target="_blank">', card)
-        href = html.unescape(m.group(1)).strip() if m else ""
-        is_pdf = href.lower().endswith(".pdf")
+    for i, subj_ar, lbl, sem, href in cards(page):
+        alts = [h for h in older.get((norm(subj_ar), sem, norm(lbl)), []) if h != href]
+        recovered = ""
+        if not href and alts:
+            href, alts, recovered = alts[0], alts[1:], "link missing on newest page; taken from an earlier capture"
+        is_pdf = bool(href)
         lt, ft = label_type(lbl), (filename_type(href) if is_pdf else None)
         # File-name hints only arbitrate student vs activity (NCCD sometimes swaps these labels)
         if lt in (None, "student", "activity") and ft in ("student", "activity"):
@@ -130,11 +150,13 @@ for gid, (gkey, gen, gar) in GRADES.items():
         rows.append({
             "grade_key": gkey, "grade_en": gen, "grade_ar": gar, "nccd_grade_id": gid,
             "subject_ar": subj_ar, "subject_en": SUBJECTS.get(norm(subj_ar), ""),
-            "semester": semester(field(card, "Semester")),
+            "semester": sem,
             "type": btype, "nccd_label": lbl, "display_name": display_name(btype, lbl),
             "type_note": "" if btype == lt else f"label says {lt}, file name says {ft}",
             "path": href if is_pdf else "",
-            "official_url": ("https://www.nccd.gov.jo" + quote(href, safe="/()&,'+")) if is_pdf else "",
+            "official_url": official(href) if is_pdf else "",
+            "alt_urls": " | ".join(official(h) for h in alts[:3]),
+            "recovered": recovered,
             "card": i,
         })
 
@@ -172,6 +194,8 @@ for r in rows:
         print(f"  relabelled: {r['grade_en']} {r['subject_ar']} S{r['semester']}: {r['type_note']} ({r['path'].rsplit('/',1)[-1]})")
     if not r["path"]:
         print(f"  NO LINK on NCCD: {r['grade_en']} {r['subject_ar']} S{r['semester']} {r['nccd_label']}")
+    if r["recovered"]:
+        print(f"  recovered from earlier capture: {r['grade_en']} {r['subject_ar']} S{r['semester']} -> {r['path'].rsplit('/',1)[-1]}")
 unknown = sorted({r["subject_ar"] for r in rows if not r["subject_en"]})
 if unknown:
     print("subjects without English name:", unknown)

@@ -146,6 +146,8 @@ for n, r in enumerate(rows):
             cands.append(("official", r["official_url"], False))
         cands.append(("wayback:latest", f"https://web.archive.org/web/99991231235959id_/{r['official_url']}", True))
         cands.append(("wayback:others", r["official_url"], True))  # expanded lazily below
+        for alt in filter(None, (r.get("alt_urls") or "").split(" | ")):
+            cands.append(("older-edition:latest", f"https://web.archive.org/web/99991231235959id_/{alt}", True))
     for u in fallbacks.get((r["grade_key"], key), []):
         cands.append(("mirror", u, False))
 
@@ -168,7 +170,7 @@ for n, r in enumerate(rows):
         m = re.search(r"/web/(\d{14})", info.get("final_url", "") or "")
         if wb and m:
             tried_ts.add(m.group(1))
-            label = f"wayback:{m.group(1)}"
+            label = f"{label.split(':')[0]}:{m.group(1)}"
         if not ok:
             rec["attempts"].append(f"{label}: {info.get('error')}")
             continue
