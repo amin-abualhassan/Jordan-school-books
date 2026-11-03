@@ -168,15 +168,16 @@ for n, r in enumerate(rows):
         else:
             cands.append(("wayback:latest", f"https://web.archive.org/web/99991231235959id_/{r['official_url']}", True))
             cands.append(("wayback:others", r["official_url"], True))  # expanded lazily below
-        for alt in filter(None, (r.get("alt_urls") or "").split(" | ")) if not os.environ.get("NO_WAYBACK") else []:
-            cands.append(("older-edition:latest", f"https://web.archive.org/web/99991231235959id_/{alt}", True))
     fb = fallbacks.get((r["grade_key"], key), [])
     # strict matches first; loose ones (other semester/type label) only count if byte-identical to official
     for u, mname, kind in sorted(fb, key=lambda x: x[2] != "strict"):
         cands.append((f"mirror:{mname}" + (":loose" if kind == "loose" else ""), u, False))
+    for alt in filter(None, (r.get("alt_urls") or "").split(" | ")) if not os.environ.get("NO_WAYBACK") else []:
+        cands.append(("older-edition:latest", f"https://web.archive.org/web/99991231235959id_/{alt}", True))
 
     rec = dict(r, n=n, status="missing", source="", source_url="", attempts=[], official_match="")
     prefix = OUT / "files" / f"{n:04d}.prefix"
+    backup, backup_meta = OUT / "files" / f"{n:04d}.backup", {}
     tried_ts = set()
     queue = list(cands)
     while queue:
@@ -224,11 +225,20 @@ for n, r in enumerate(rows):
                 rec["attempts"].append(f"{label}: label differs and not proven identical, skipped")
                 rec["official_match"] = ""
                 continue
+            if rec["official_match"].startswith("differs") and not backup.exists():
+                tmp.replace(backup)  # different print: use only if nothing closer to the official file turns up
+                backup_meta.update(source=label, source_url=info.get("final_url", url), official_match=rec["official_match"], **meta)
+                rec["attempts"].append(f"{label}: differs from official file, kept as last resort")
+                rec["official_match"] = ""
+                continue
         tmp.rename(dest)
         h = hashlib.sha256(dest.read_bytes()).hexdigest()
         rec.update(status="ok", source=label, source_url=info.get("final_url", url), file=dest.name, sha256=h, **meta)
         break
-    for f in (tmp, prefix):
+    if rec["status"] != "ok" and backup.exists():
+        backup.rename(dest)
+        rec.update(status="ok", file=dest.name, sha256=hashlib.sha256(dest.read_bytes()).hexdigest(), **backup_meta)
+    for f in (tmp, prefix, backup):
         if f.exists():
             f.unlink()
     if not cands:
