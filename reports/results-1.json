@@ -13,15 +13,26 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Math/2025/G01/MA.01.EX_WEB.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Math/2025/G01/MA.01.EX_WEB.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "0",
   "n": 0,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/5779",
   "attempts": [
    "wayback:20250917203858: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one"
+  ],
+  "official_match": "differs from the official file (likely another print/edition)",
+  "file": "0000.pdf",
+  "sha256": "0fb820946429c04d2282ae1c71698c4acb94ef0c67051218cc20cc4e4179c83e",
+  "pages": 48,
+  "size": 16044363
  },
  {
   "grade_key": "1",
@@ -37,15 +48,24 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Islam/Islam/2025/G1/1/Is G1 P1 2025 .pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Islam/Islam/2025/G1/1/Is%20G1%20P1%202025%20.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "1",
   "n": 1,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/6334",
   "attempts": [
    "wayback:20250917205739: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one"
+  ],
+  "official_match": "differs from the official file (likely another print/edition)",
+  "file": "0001.pdf",
+  "sha256": "05471416caee1d42fe571f8a598db78e8c05e2eedb641aed6cb02bda8386ad0e",
+  "pages": 88,
+  "size": 18336571
  },
  {
   "grade_key": "1",
@@ -61,15 +81,27 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Math/2025/G01/2/MT01/SE/MA.01.ST2.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Math/2025/G01/2/MT01/SE/MA.01.ST2.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Math/2024/part2/MT01/ST/MA.01.ST2_14_8_2024.pdf",
+  "recovered": "",
   "card": "2",
   "n": 2,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/5987",
   "attempts": [
    "wayback:20260517204712: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "older-edition:20250717084933: truncated (no %%EOF at end, 5242880 bytes)"
+  ],
+  "official_match": "differs from the official file (likely another print/edition)",
+  "file": "0002.pdf",
+  "sha256": "e4185311bf0b9dcf89efe058274fbcd0b1047b3f968a13b3e00ed0984b9ae7e9",
+  "pages": 99,
+  "size": 44146047
  },
  {
   "grade_key": "1",
@@ -85,15 +117,24 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Islam/Islam/2025/G1/2/G1-Islamic.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Islam/Islam/2025/G1/2/G1-Islamic.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "3",
   "n": 3,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/6735",
   "attempts": [
    "wayback:20250917214452: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one"
+  ],
+  "official_match": "differs from the official file (likely another print/edition)",
+  "file": "0003.pdf",
+  "sha256": "5a033618b470463bf227adf002eb620849734c1d6203bf6bf19980b0d61c1548",
+  "pages": 92,
+  "size": 17415393
  },
  {
   "grade_key": "1",
@@ -109,15 +150,22 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Math/2025/G01/2/MT01/WB/MA.01.WB2-reprint.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Math/2025/G01/2/MT01/WB/MA.01.WB2-reprint.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Math/2024/part2/MT01/WB/MA.01.WB_14_8_2024.pdf",
+  "recovered": "",
   "card": "4",
   "n": 4,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/5988",
   "attempts": [
    "wayback:99991231235959: HTTP 404",
    "wayback: no other captures"
-  ]
+  ],
+  "official_match": "no official copy available to compare",
+  "file": "0004.pdf",
+  "sha256": "e976de9fc59d262818837bcb39d7918a8799ac4ec4e29c83df43a683c416f107",
+  "pages": 40,
+  "size": 3234458
  },
  {
   "grade_key": "1",
@@ -133,15 +181,26 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Science/2025/علوم أول/علوم أول طالب ف1 S .pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/2025/%D8%B9%D9%84%D9%88%D9%85%20%D8%A3%D9%88%D9%84/%D8%B9%D9%84%D9%88%D9%85%20%D8%A3%D9%88%D9%84%20%D8%B7%D8%A7%D9%84%D8%A8%20%D9%811%20S%20.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/Science%20date%2010.9.2023/%D8%A7%D9%84%D8%A7%D9%94%D9%88%D9%84/%D8%A7%D9%84%D8%AC%D8%B2%D8%A1%20%D8%A7%D9%84%D8%A7%D9%95%D9%88%D9%84/Student_science_01.pdf",
+  "recovered": "",
   "card": "5",
   "n": 5,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "older-edition:20250621163926",
+  "source_url": "https://web.archive.org/web/20250621163926id_/https://nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/Science%20date%2010.9.2023/%D8%A7%D9%84%D8%A7%D9%94%D9%88%D9%84/%D8%A7%D9%84%D8%AC%D8%B2%D8%A1%20%D8%A7%D9%84%D8%A7%D9%95%D9%88%D9%84/Student_science_01.pdf",
   "attempts": [
    "wayback:20260618014035: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one"
+  ],
+  "official_match": "",
+  "file": "0005.pdf",
+  "sha256": "d51d010e5593952d9dd27ba02fa2d0f2de57be92507dc0daaf801a175b331b5b",
+  "pages": 76,
+  "size": 20657074
  },
  {
   "grade_key": "1",
@@ -157,15 +216,22 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Science/2025/علوم أول/علوم أول نشاط ف1 S .pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/2025/%D8%B9%D9%84%D9%88%D9%85%20%D8%A3%D9%88%D9%84/%D8%B9%D9%84%D9%88%D9%85%20%D8%A3%D9%88%D9%84%20%D9%86%D8%B4%D8%A7%D8%B7%20%D9%811%20S%20.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/Science%20date%2010.9.2023/%D8%A7%D9%84%D8%A7%D9%94%D9%88%D9%84/%D8%A7%D9%84%D8%AC%D8%B2%D8%A1%20%D8%A7%D9%84%D8%A7%D9%95%D9%88%D9%84/Science_01_WorkBook.pdf",
+  "recovered": "",
   "card": "6",
   "n": 6,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/5650",
   "attempts": [
    "wayback:99991231235959: HTTP 404",
    "wayback: no other captures"
-  ]
+  ],
+  "official_match": "no official copy available to compare",
+  "file": "0006.pdf",
+  "sha256": "019a64c7be29e99c73a4075b7ec6b8e398ce4c751c2441565f58bb85befaca85",
+  "pages": 36,
+  "size": 8196713
  },
  {
   "grade_key": "1",
@@ -181,15 +247,22 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Science/2025/New folder/New folder (2)/علوم أول ف2 Pdf/علوم صف أول ج2 .pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/2025/New%20folder/New%20folder%20(2)/%D8%B9%D9%84%D9%88%D9%85%20%D8%A3%D9%88%D9%84%20%D9%812%20Pdf/%D8%B9%D9%84%D9%88%D9%85%20%D8%B5%D9%81%20%D8%A3%D9%88%D9%84%20%D8%AC2%20.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/part%20(2)%2010.12.2024/%D8%A3%D9%88%D9%84/%D8%B9%D9%84%D9%88%D9%85%20%D8%B5%D9%81%20%D8%A3%D9%88%D9%84%20%D8%AD%D8%B2%D8%A1%20%D8%AB%D8%A7%D9%86%D9%8A%20.pdf",
+  "recovered": "",
   "card": "8",
   "n": 7,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/6019",
   "attempts": [
    "wayback:99991231235959: HTTP 404",
    "wayback: no other captures"
-  ]
+  ],
+  "official_match": "no official copy available to compare",
+  "file": "0007.pdf",
+  "sha256": "0ae5b55c624842e9fc55ce52269dc8bc9a903d7f37d0524e58a9a4779755ba4b",
+  "pages": 74,
+  "size": 20241736
  },
  {
   "grade_key": "1",
@@ -205,15 +278,22 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Science/2025/New folder/New folder (2)/علوم أول ف2 Pdf/علوم نشاط صف أول ج2  .pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/2025/New%20folder/New%20folder%20(2)/%D8%B9%D9%84%D9%88%D9%85%20%D8%A3%D9%88%D9%84%20%D9%812%20Pdf/%D8%B9%D9%84%D9%88%D9%85%20%D9%86%D8%B4%D8%A7%D8%B7%20%D8%B5%D9%81%20%D8%A3%D9%88%D9%84%20%D8%AC2%20%20.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Science/part%20(2)%2010.12.2024/%D8%A3%D9%88%D9%84/%D8%B9%D9%84%D9%88%D9%85%20%D9%86%D8%B4%D8%A7%D8%B7%20%D8%B5%D9%81%20%D8%A3%D9%88%D9%84%20%D8%AD%D8%B2%D8%A1%20%D8%AB%D8%A7%D9%86%D9%8A%20%20.pdf",
+  "recovered": "",
   "card": "9",
   "n": 8,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/6024",
   "attempts": [
    "wayback:99991231235959: HTTP 404",
    "wayback: no other captures"
-  ]
+  ],
+  "official_match": "no official copy available to compare",
+  "file": "0008.pdf",
+  "sha256": "036ade17371618186e6c00bf499786377fcfad239dc2433c39f6dc5032682caa",
+  "pages": 42,
+  "size": 6264394
  },
  {
   "grade_key": "1",
@@ -229,15 +309,26 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Math/2025/G01/MA.01.ST.BOOK_WEB.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Math/2025/G01/MA.01.ST.BOOK_WEB.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "12",
   "n": 9,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/5778",
   "attempts": [
    "wayback:20250917204045: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one"
+  ],
+  "official_match": "differs from the official file (likely another print/edition)",
+  "file": "0009.pdf",
+  "sha256": "ec3bab5dac06972190d3f7002b8000933644622368e0a21838cf1b32adb8e2e9",
+  "pages": 115,
+  "size": 53254819
  },
  {
   "grade_key": "1",
@@ -253,12 +344,15 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Arabic/2025/عربي 6.7.2025/1/كتاب التمارين الصف الاول اعادة طباعه ف1 12 - 5  (2).pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/2025/%D8%B9%D8%B1%D8%A8%D9%8A%206.7.2025/1/%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%20%D8%A7%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%B7%D8%A8%D8%A7%D8%B9%D9%87%20%D9%811%2012%20-%205%20%20(2).pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "15",
   "n": 10,
   "status": "ok",
   "source": "wayback:20260428115147",
   "source_url": "https://web.archive.org/web/20260428115147id_/https://nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/2025/%D8%B9%D8%B1%D8%A8%D9%8A%206.7.2025/1/%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%20%D8%A7%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%B7%D8%A8%D8%A7%D8%B9%D9%87%20%D9%811%2012%20-%205%20%20(2).pdf",
   "attempts": [],
+  "official_match": "",
   "file": "0010.pdf",
   "sha256": "9ccd3a939d55a49f898a8c5c921e6e4bd1eb9c72bbe6fb87e6fdde4d85e78c35",
   "pages": 73,
@@ -278,12 +372,15 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Arabic/2025/عربي 6.7.2025/1/الصف الاول اعادة طباعة 25 - 5.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/2025/%D8%B9%D8%B1%D8%A8%D9%8A%206.7.2025/1/%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%20%D8%A7%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%B7%D8%A8%D8%A7%D8%B9%D8%A9%2025%20-%205.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "16",
   "n": 11,
   "status": "ok",
   "source": "wayback:20260428115509",
   "source_url": "https://web.archive.org/web/20260428115509id_/https://nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/2025/%D8%B9%D8%B1%D8%A8%D9%8A%206.7.2025/1/%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%20%D8%A7%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%B7%D8%A8%D8%A7%D8%B9%D8%A9%2025%20-%205.pdf",
   "attempts": [],
+  "official_match": "",
   "file": "0011.pdf",
   "sha256": "fc8191364d85dbffa9de5d642e29d716dacaecbddf51ecd1d64577db5a8b721a",
   "pages": 158,
@@ -303,6 +400,8 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/SS/G1/الدراسات الاجتماعية-الصف الأول-ف1- إعادة طباعة للموقع.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/SS/G1/%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%94%D9%88%D9%84-%D9%811-%20%D8%A7%D9%95%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%B7%D8%A8%D8%A7%D8%B9%D8%A9%20%D9%84%D9%84%D9%85%D9%88%D9%82%D8%B9.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "17",
   "n": 12,
   "status": "ok",
@@ -311,6 +410,7 @@
   "attempts": [
    "wayback:20260618022507: truncated (no %%EOF at end, 5242880 bytes)"
   ],
+  "official_match": "",
   "file": "0012.pdf",
   "sha256": "2c3bdfdf9ac6650694a59c9d1f35f9c51ba8d8db7fa0a613aca80d35b5411482",
   "pages": 76,
@@ -330,12 +430,15 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Arabic/2025/عربي 6.7.2025/1/P2/اول - طالب ف2 .pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/2025/%D8%B9%D8%B1%D8%A8%D9%8A%206.7.2025/1/P2/%D8%A7%D9%88%D9%84%20-%20%D8%B7%D8%A7%D9%84%D8%A8%20%D9%812%20.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/G1/2/%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%B7%D8%A7%D9%84%D8%A8.pdf",
+  "recovered": "",
   "card": "18",
   "n": 13,
   "status": "ok",
   "source": "wayback:20260428115037",
   "source_url": "https://web.archive.org/web/20260428115037id_/https://nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/2025/%D8%B9%D8%B1%D8%A8%D9%8A%206.7.2025/1/P2/%D8%A7%D9%88%D9%84%20-%20%D8%B7%D8%A7%D9%84%D8%A8%20%D9%812%20.pdf",
   "attempts": [],
+  "official_match": "",
   "file": "0013.pdf",
   "sha256": "2924965e57c8072bb70cc0eaf8198af50acf96eb7aa7faa383adb7347e0a4c48",
   "pages": 134,
@@ -355,12 +458,15 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/Arabic/2025/عربي 6.7.2025/1/P2/تمارين - اول - ف2 .pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/2025/%D8%B9%D8%B1%D8%A8%D9%8A%206.7.2025/1/P2/%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20-%20%D8%A7%D9%88%D9%84%20-%20%D9%812%20.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/G1/2/%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86.pdf",
+  "recovered": "",
   "card": "19",
   "n": 14,
   "status": "ok",
   "source": "wayback:20260428115026",
   "source_url": "https://web.archive.org/web/20260428115026id_/https://nccd.gov.jo/EBV4.0/Root_Storage/AR/Arabic/2025/%D8%B9%D8%B1%D8%A8%D9%8A%206.7.2025/1/P2/%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20-%20%D8%A7%D9%88%D9%84%20-%20%D9%812%20.pdf",
   "attempts": [],
+  "official_match": "",
   "file": "0014.pdf",
   "sha256": "c8bcb040301770f37cd60661f09a2d34bed1d8b2ae638e5deb2d677d14724916",
   "pages": 57,
@@ -378,16 +484,21 @@
   "nccd_label": "كتاب الطالب",
   "display_name": "Student Book - كتاب الطالب",
   "type_note": "",
-  "path": "",
-  "official_url": "",
+  "path": "/EBV4.0/Root_Storage/AR/SS/الدراسات الاجتماعية-الصف الأول-ف2-.pdf",
+  "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/SS/%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%94%D9%88%D9%84-%D9%812-.pdf",
+  "alt_urls": "",
+  "recovered": "link missing on newest page; taken from an earlier capture",
   "card": "20",
   "n": 15,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
-  "attempts": [
-   "no link on NCCD and no fallback source"
-  ]
+  "status": "ok",
+  "source": "wayback:20250601121229",
+  "source_url": "https://web.archive.org/web/20250601121229id_/https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/SS/%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%94%D9%88%D9%84-%D9%812-.pdf",
+  "attempts": [],
+  "official_match": "",
+  "file": "0015.pdf",
+  "sha256": "e18d69b2d380960e8ac7f8b1ec11e590af02505d3f58a65161eb7209b2f2ff62",
+  "pages": 88,
+  "size": 59485469
  },
  {
   "grade_key": "1",
@@ -403,15 +514,26 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/EN/2025/G1/JOR TT G1 S1 Reprints PB Print Updated.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/EN/2025/G1/JOR%20TT%20G1%20S1%20Reprints%20PB%20Print%20Updated.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "22",
   "n": 16,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/5666",
   "attempts": [
    "wayback:20250917204628: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one"
+  ],
+  "official_match": "differs from the official file (likely another print/edition)",
+  "file": "0016.pdf",
+  "sha256": "ea78ff55020fedf46b9bc9e5a3a8f55298f87aedca3066579e4d6b69cac37e87",
+  "pages": 54,
+  "size": 21468073
  },
  {
   "grade_key": "1",
@@ -427,15 +549,26 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/EN/2025/G1/JOR TT G1 S1 Reprints AB Print.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/EN/2025/G1/JOR%20TT%20G1%20S1%20Reprints%20AB%20Print.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "23",
   "n": 17,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/9980",
   "attempts": [
    "wayback:20250917214041: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one"
+  ],
+  "official_match": "differs from the official file (likely another print/edition)",
+  "file": "0017.pdf",
+  "sha256": "b91a0500f3844bf34100d276b696d273100bb17aa38a18bc2c6ee4c93d1f25cb",
+  "pages": 44,
+  "size": 11993841
  },
  {
   "grade_key": "1",
@@ -451,6 +584,8 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/التربية الرياضية/1/Grade 01_Final.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A9/1/Grade%2001_Final.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "24",
   "n": 18,
   "status": "missing",
@@ -459,7 +594,8 @@
   "attempts": [
    "wayback:20250601121033: HTTP 404",
    "wayback: no other captures"
-  ]
+  ],
+  "official_match": ""
  },
  {
   "grade_key": "1",
@@ -475,12 +611,15 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/التربية الفنية والموسيقية والمسرحية/الصف الاول/الصف الأول تربية فنية وموسيقية ومسرحية.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%8A%D9%82%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D9%85%D8%B3%D8%B1%D8%AD%D9%8A%D8%A9/%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A3%D9%88%D9%84%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D9%81%D9%86%D9%8A%D8%A9%20%D9%88%D9%85%D9%88%D8%B3%D9%8A%D9%82%D9%8A%D8%A9%20%D9%88%D9%85%D8%B3%D8%B1%D8%AD%D9%8A%D8%A9.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "25",
   "n": 19,
   "status": "ok",
   "source": "wayback:20250601191359",
   "source_url": "https://web.archive.org/web/20250601191359id_/https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%8A%D9%82%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D9%85%D8%B3%D8%B1%D8%AD%D9%8A%D8%A9/%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D8%A3%D9%88%D9%84%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D9%81%D9%86%D9%8A%D8%A9%20%D9%88%D9%85%D9%88%D8%B3%D9%8A%D9%82%D9%8A%D8%A9%20%D9%88%D9%85%D8%B3%D8%B1%D8%AD%D9%8A%D8%A9.pdf",
   "attempts": [],
+  "official_match": "",
   "file": "0019.pdf",
   "sha256": "cbe6128211db8db66790de0a553973ccea36f5db4c297e42364185b993e3cf19",
   "pages": 76,
@@ -500,15 +639,27 @@
   "type_note": "label says student, file name says activity",
   "path": "/EBV4.0/Root_Storage/EN/2025/G1/2/JOR-TT-G1-S2-Reprints-2025-Activity-Book-Updated.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/EN/2025/G1/2/JOR-TT-G1-S2-Reprints-2025-Activity-Book-Updated.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/EN/2024/G1/Part2/Jordan_Team_Together_G1_S2_Activity_Book_Final_Print.pdf",
+  "recovered": "",
   "card": "26",
   "n": 20,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/10209",
   "attempts": [
    "wayback:20260517212823: truncated (no %%EOF at end, 5242880 bytes)",
-   "wayback: no other captures"
-  ]
+   "wayback: no other captures",
+   "mirror:minhaji.net: differs from official file, kept as last resort",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "mirror:minhaji.net:loose: not the same file as the official one",
+   "older-edition:20250717095811: truncated (no %%EOF at end, 5242880 bytes)"
+  ],
+  "official_match": "differs from the official file (likely another print/edition)",
+  "file": "0020.pdf",
+  "sha256": "ac8d54318625cb5103895c9c0938b648f9a636a2a129b51668aafa02031e8f10",
+  "pages": 40,
+  "size": 14235681
  },
  {
   "grade_key": "1",
@@ -524,15 +675,22 @@
   "type_note": "label says activity, file name says student",
   "path": "/EBV4.0/Root_Storage/EN/2025/G1/2/JOR-TT-G1-S2-Reprints-2025-Pupils-Book-Updated.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/EN/2025/G1/2/JOR-TT-G1-S2-Reprints-2025-Pupils-Book-Updated.pdf",
+  "alt_urls": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/EN/2024/G1/Part2/Jordan_Team_Together_G1_S2_Pupil's_Book_Final_Print.pdf",
+  "recovered": "",
   "card": "27",
   "n": 21,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/10213",
   "attempts": [
    "wayback:99991231235959: HTTP 404",
    "wayback: no other captures"
-  ]
+  ],
+  "official_match": "no official copy available to compare",
+  "file": "0021.pdf",
+  "sha256": "391b6dc0110dc68ae16c8ce4ac8c48fa26ae5c361c3da410d6dab3ffcb929852",
+  "pages": 56,
+  "size": 34731388
  },
  {
   "grade_key": "1",
@@ -548,12 +706,15 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/التربية الرياضية/1/2/Grade 01_SE2.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A9/1/2/Grade%2001_SE2.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "28",
   "n": 22,
   "status": "ok",
   "source": "wayback:20250601121209",
   "source_url": "https://web.archive.org/web/20250601121209id_/https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A9/1/2/Grade%2001_SE2.pdf",
   "attempts": [],
+  "official_match": "",
   "file": "0022.pdf",
   "sha256": "580afac8b03521b53a25cff2e70e5a981f53c7c9811b7782524b1fc0b58f86d0",
   "pages": 42,
@@ -573,14 +734,21 @@
   "type_note": "",
   "path": "/EBV4.0/Root_Storage/AR/المهارات الرقمية/G1/1/G1 AB Full Book V18.pdf",
   "official_url": "https://www.nccd.gov.jo/EBV4.0/Root_Storage/AR/%D8%A7%D9%84%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9/G1/1/G1%20AB%20Full%20Book%20V18.pdf",
+  "alt_urls": "",
+  "recovered": "",
   "card": "30",
   "n": 23,
-  "status": "missing",
-  "source": "",
-  "source_url": "",
+  "status": "ok",
+  "source": "mirror:minhaji.net",
+  "source_url": "https://www.minhaji.net/download/31113",
   "attempts": [
    "wayback:99991231235959: HTTP 404",
    "wayback: no other captures"
-  ]
+  ],
+  "official_match": "no official copy available to compare",
+  "file": "0023.pdf",
+  "sha256": "ea4eb65a19dc81d25c6a05f399030ca64202976d72b5740b15b89bcc2ceee4c2",
+  "pages": 86,
+  "size": 16434128
  }
 ]
