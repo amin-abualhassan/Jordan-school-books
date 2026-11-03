@@ -98,12 +98,19 @@ Folder names are bilingual and zero-padded so they sort correctly in Drive.
   environment's network settings.
 - Repo visibility: stays public.
 
-## 8. Status / blockers
+## 8. Status
 
-- [ ] **Blocked:** this cloud session's network policy denies `nccd.gov.jo` and
-      `www.nccd.gov.jo`, so the catalog cannot be crawled or verified from here
-      yet.
-- [ ] Discover + manifest
-- [ ] Downloader, verifier and packager scripts
-- [ ] GitHub Actions workflow → Release
-- [ ] Final report (counts per grade, total size, anything missing)
+- [x] nccd.gov.jo is unreachable from outside Jordan (tested from 25 countries and
+      GitHub's servers), so the catalog was rebuilt from the Internet Archive's
+      copies of NCCD's own grade pages (newest: May 2026) -> 410 entries.
+- [x] Files: complete official copies from the Internet Archive where they exist;
+      otherwise minhaji.net copies (owner approved unofficial sources for gaps).
+      Every file verified as a complete PDF.
+- [x] Packaged one zip per grade and published as GitHub Release
+      `textbooks-2025-2026`.
+- [x] Every grade's covers reviewed against their folders; corrections recorded
+      in `catalog/patches.json` and applied by `patch.yml`.
+- [x] Final numbers and the list of books that could not be found: `REPORT.md`.
+
+Re-running: `catalog.yml` (catalog) -> `scripts/build_manifest.py`,
+`scripts/map_mirrors.py` -> `build.yml` (download, zip, release) -> `patch.yml`.
