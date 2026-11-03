@@ -27,15 +27,28 @@ def get(url, ok=lambda r: r.status_code == 200, tries=6):
         time.sleep(20 * (i + 1))
     return None
 
+import json, re
+stamps = {}
 for g in GRADES:
-    url = f"https://web.archive.org/web/2026id_/https://nccd.gov.jo/ar/pages/TextBooksGrade/{g}"
+    # 99991231235959 = "closest to the far future", i.e. the newest capture
+    url = f"https://web.archive.org/web/99991231235959id_/https://nccd.gov.jo/ar/pages/TextBooksGrade/{g}"
     r = get(url, ok=lambda r: r.status_code == 200 and "lvComponent14Book" in r.text)
     if r is None:
         print(f"FAILED grade {g}", flush=True)
     else:
         (SNAP / f"grade_{g}.html").write_text(r.text, encoding="utf-8")
+        m = re.search(r"/web/(\d{14})", r.url)
+        stamps[g] = {"capture": m.group(1) if m else None, "url": r.url}
         print(f"grade {g}: {len(r.text)} chars from {r.url}", flush=True)
     time.sleep(6)
+(SNAP / "captures.json").write_text(json.dumps(stamps, indent=1), encoding="utf-8")
+
+# All captures of the grade pages, to see how fresh the newest one is
+time.sleep(6)
+r = get("https://web.archive.org/cdx/search/cdx?url=nccd.gov.jo/ar/pages/TextBooksGrade/&matchType=prefix"
+        "&fl=timestamp,original,statuscode&filter=statuscode:200&output=txt")
+if r is not None:
+    (OUT / "cdx_grade_pages.txt").write_text(r.text, encoding="utf-8")
 
 # CDX index of all archived files under Root_Storage (paged)
 rows, page = [], 0

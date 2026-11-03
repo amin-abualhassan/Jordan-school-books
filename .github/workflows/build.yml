@@ -1,0 +1,101 @@
+name: Build textbook release
+
+on:
+  workflow_dispatch:
+    inputs:
+      grades:
+        description: "Grade keys to build (JSON list)"
+        default: "[1,2,3,4,5,6,7,8,9,10,11,12]"
+      tag:
+        description: "Release tag"
+        default: "textbooks-2025-2026"
+
+permissions:
+  contents: write
+
+env:
+  TAG: ${{ inputs.tag }}
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create release if missing
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" \
+            --title "Jordanian school textbooks 2025/2026 (Grades 1-12)" \
+            --notes "Official NCCD student books and activity books, one zip per grade. Download the zips, extract them into one folder, and upload that folder to Google Drive. See REPORT.md in the repo for details." \
+            --target "${{ github.ref_name }}"
+
+  grade:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        grade: ${{ fromJSON(inputs.grades) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install tools
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q poppler-utils
+          pip install requests
+      - name: Download and verify
+        run: python scripts/download.py ${{ matrix.grade }} dl
+      - name: Organize and zip
+        run: python scripts/package.py dl out
+      - name: Upload zips to release
+        run: |
+          shopt -s nullglob
+          zips=(out/zips/*.zip)
+          if [ ${#zips[@]} -gt 0 ]; then gh release upload "$TAG" "${zips[@]}" --clobber; fi
+      - name: Keep results
+        if: always()
+        run: |
+          mkdir -p res
+          cp dl/results.json res/ 2>/dev/null || true
+          cp out/index.json res/ 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-${{ matrix.grade }}
+          path: res/
+          retention-days: 30
+
+  finalize:
+    needs: grade
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          pattern: results-*
+      - name: Build report and index
+        run: python scripts/report.py artifacts final
+      - name: Upload index and readme to release
+        run: |
+          cp scripts/README_drive.txt final/README.txt
+          gh release upload "$TAG" final/INDEX.csv final/README.txt --clobber
+      - name: Commit report
+        run: |
+          mkdir -p reports
+          cp final/REPORT.md REPORT.md
+          cp final/INDEX.csv reports/INDEX.csv
+          for d in artifacts/*/; do n=$(basename "$d"); cp "$d/results.json" "reports/$n.json" 2>/dev/null || true; done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add REPORT.md reports
+          git commit -m "Update download report [skip ci]" || echo "nothing to commit"
+          git pull --rebase -q && git push
