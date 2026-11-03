@@ -87,6 +87,32 @@ def verify(path, expected_size=None):
     return True, "ok", {"pages": int(m.group(1)), "size": size}
 
 
+_digest_seen = set()
+
+
+def capture_list(official_url):
+    """All 200-status captures of one URL, newest first, one per distinct content digest."""
+    q = ("https://web.archive.org/cdx/search/cdx?url=" + requests.utils.quote(official_url, safe="")
+         + "&fl=timestamp,original,statuscode,digest&filter=statuscode:200&output=txt")
+    for i in range(3):
+        wait_turn()
+        try:
+            r = S.get(q, timeout=120)
+            if r.status_code == 200:
+                rows, seen = [], set()
+                for line in r.text.splitlines():
+                    p = line.split(" ")
+                    if len(p) >= 4 and p[3] not in seen:
+                        seen.add(p[3])
+                        rows.append((p[0], p[1]))
+                # keep newest capture of each digest, newest first
+                return sorted(rows, reverse=True)
+        except Exception:
+            pass
+        time.sleep(20 * (i + 1))
+    return []
+
+
 def official_reachable():
     try:
         S.get("https://www.nccd.gov.jo/", timeout=20)
@@ -100,16 +126,6 @@ rows = list(csv.DictReader(open(CAT / "manifest.csv", encoding="utf-8")))
 if grade_arg != "all":
     rows = [r for r in rows if r["grade_key"] == grade_arg]
 
-captures = defaultdict(list)  # norm path -> [(timestamp, original)]
-cdx = CAT / "cdx_root_storage.txt"
-if cdx.exists():
-    for line in cdx.read_text(encoding="utf-8").splitlines():
-        parts = line.split(" ")
-        if len(parts) >= 3 and parts[2] == "200":
-            captures[norm_path(parts[1])].append((parts[0], parts[1]))
-for v in captures.values():
-    v.sort(reverse=True)
-
 fallbacks = defaultdict(list)  # manifest card key -> [url]
 fb = CAT / "fallbacks.csv"
 if fb.exists():
@@ -117,7 +133,7 @@ if fb.exists():
         fallbacks[(r["grade_key"], r["path"] or r["key"])].append(r["url"])
 
 OFFICIAL = official_reachable()
-print(f"official site reachable: {OFFICIAL}; {len(rows)} books; {len(captures)} archived paths", flush=True)
+print(f"official site reachable: {OFFICIAL}; {len(rows)} books", flush=True)
 
 results = []
 for n, r in enumerate(rows):
@@ -128,17 +144,31 @@ for n, r in enumerate(rows):
     if r["path"]:
         if OFFICIAL:
             cands.append(("official", r["official_url"], False))
-        caps = captures.get(norm_path(r["path"]), [])
-        for ts, orig in caps[:6]:
-            cands.append((f"wayback:{ts}", f"https://web.archive.org/web/{ts}id_/{orig}", True))
-        if not caps:
-            cands.append(("wayback:nearest", f"https://web.archive.org/web/2026id_/{r['official_url']}", True))
+        cands.append(("wayback:latest", f"https://web.archive.org/web/99991231235959id_/{r['official_url']}", True))
+        cands.append(("wayback:others", r["official_url"], True))  # expanded lazily below
     for u in fallbacks.get((r["grade_key"], key), []):
         cands.append(("mirror", u, False))
 
     rec = dict(r, n=n, status="missing", source="", source_url="", attempts=[])
-    for label, url, wb in cands:
+    tried_ts = set()
+    queue = list(cands)
+    while queue:
+        label, url, wb = queue.pop(0)
+        if label == "wayback:others":
+            # Only reached when the newest capture failed: list every capture of this exact file
+            more = []
+            for ts, orig in capture_list(url):
+                if ts not in tried_ts:
+                    more.append((f"wayback:{ts}", f"https://web.archive.org/web/{ts}id_/{orig}", True))
+            queue[0:0] = more[:5]
+            if not more:
+                rec["attempts"].append("wayback: no other captures")
+            continue
         ok, info = fetch(url, tmp, wayback=wb)
+        m = re.search(r"/web/(\d{14})", info.get("final_url", "") or "")
+        if wb and m:
+            tried_ts.add(m.group(1))
+            label = f"wayback:{m.group(1)}"
         if not ok:
             rec["attempts"].append(f"{label}: {info.get('error')}")
             continue
