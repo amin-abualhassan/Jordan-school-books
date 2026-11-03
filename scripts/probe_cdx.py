@@ -15,6 +15,14 @@ QUERIES = {
     "cdx_pages_recent.txt": "url=nccd.gov.jo/ar/&matchType=prefix&from=20260701"
                             "&fl=timestamp,original,statuscode&filter=statuscode:200&collapse=urlkey",
 }
+from urllib.parse import quote
+dirs = OUT / "probe_dirs.txt"
+if dirs.exists():
+    QUERIES = {}
+    for i, d in enumerate(l.strip() for l in dirs.read_text(encoding="utf-8").splitlines() if l.strip()):
+        QUERIES[f"probe/dir_{i}.txt"] = ("url=" + quote("nccd.gov.jo" + d + "/", safe="") + "&matchType=prefix"
+                                         "&fl=timestamp,original,statuscode,mimetype,length,digest")
+    (OUT / "probe").mkdir(exist_ok=True)
 for name, q in QUERIES.items():
     for i in range(5):
         try:
