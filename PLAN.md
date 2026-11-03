@@ -84,15 +84,21 @@ Folder names are bilingual and zero-padded so they sort correctly in Drive.
 
 - The books are © NCCD and published free for everyone. `README.txt` credits
   NCCD and links to the official site, which always has the latest editions.
-- This repo is **public**. It should be made private before the Release is
-  created, so the repo does not become a public mirror. Sharing your own Drive
-  folder with your friend is unaffected.
+- This repo stays **public** (owner's decision), so the Release zips can be
+  downloaded by anyone. Each zip's README credits NCCD as the source.
 - Quick win while this runs: the official NCCD site https://www.nccd.gov.jo
   can be sent to your friend right away. Its textbooks section has a page per
   grade, for example https://www.nccd.gov.jo/ar/pages/TextBooksGrade/68 for
   Grade 1.
 
-## 7. Status / blockers
+## 7. Decisions
+
+- Scope: student books + activity books only (no teacher's guides, no KG).
+- Access: the owner is allowing `nccd.gov.jo` / `www.nccd.gov.jo` in this
+  environment's network settings.
+- Repo visibility: stays public.
+
+## 8. Status / blockers
 
 - [ ] **Blocked:** this cloud session's network policy denies `nccd.gov.jo` and
       `www.nccd.gov.jo`, so the catalog cannot be crawled or verified from here
