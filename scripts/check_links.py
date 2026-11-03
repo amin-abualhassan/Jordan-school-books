@@ -3,7 +3,7 @@
 import re, sys, requests
 S = requests.Session(); S.headers["User-Agent"] = "Mozilla/5.0"
 ok = True
-for url in re.findall(r"\]\((https://[^)\s]+(?:\([^)]*\)[^)\s]*)*)\)", open("SAMPLES.md", encoding="utf-8").read()):
+for url in re.findall(r"\]\((https://[^()\s]+(?:\([^()\s]*\)[^()\s]*)*)\)", open("SAMPLES.md", encoding="utf-8").read()):
     try:
         r = S.get(url, timeout=120)
         kind = "PDF" if r.content[:5] == b"%PDF-" else r.headers.get("content-type", "?")
